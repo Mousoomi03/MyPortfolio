@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --neon-cyan: #00ffff;
+  --neon-purple: #8a2be2;
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated Grid Background */
+.bg-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  background-image: 
+    linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMove 20s linear infinite;
+  z-index: -1;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes gridMove {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Page Transition Animation */
+.page-transition {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 3D Card Tilt Hover Effect */
+.card-3d {
+  transition: all 0.1s ease;
+  transform-style: preserve-3d;
+}
+
+/* Robot Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes hologram {
+  0% { transform: rotateX(70deg) rotateZ(0deg); opacity: 0.5; }
+  100% { transform: rotateX(70deg) rotateZ(360deg); opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-purple);
+  border-radius: 4px;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+  font-family: 'Syncopate', sans-serif; /* or 'Space Grotesk' if you prefer rounder */
+  transition: all 0.3s ease;
+}
+
+.text-outline:hover {
+  color: rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 2px var(--neon-cyan);
+  text-shadow: 0 0 30px var(--neon-cyan);
+}
+
+/* NEW: The Vertical Neon Line */
+.neon-line-vertical {
+  background: linear-gradient(to bottom, var(--neon-cyan), transparent, var(--neon-purple));
+  width: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+/* NEW: Glassy Button for "RESUME" */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
