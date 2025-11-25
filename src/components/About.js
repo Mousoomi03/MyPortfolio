@@ -12,21 +12,34 @@ const skills = {
 
 function About() {
   return (
-    <section className="w-full max-w-7xl px-6 py-20 relative z-10" id="about">
-      <div className="mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] text-white" id="about">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute inset-0 animate-[pulse_4s_infinite]">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="absolute bg-white rounded-full opacity-60" style={{top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, width: `${Math.random() * 2 + 1}px`, height: `${Math.random() * 2 + 1}px`, animationDelay: `${Math.random() * 5}s`}} />
+          ))}
+        </div>
+      </div>
+      
+      <div className="w-full max-w-7xl px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+      <div className="mb-10 sm:mb-16">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
           About <span className="text-neon-purple">Me</span>
         </h2>
-        <div className="h-1 w-20 bg-neon-cyan rounded-full mb-6"></div>
+        <div className="h-1 w-20 bg-neon-cyan rounded-full mb-4 sm:mb-6"></div>
       </div>
 
       {/* Who I Am Section */}
-      <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl mb-12 group hover:border-neon-cyan/50 transition-all duration-300">
+      <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 rounded-2xl sm:rounded-3xl mb-8 sm:mb-12 group hover:border-neon-cyan/50 transition-all duration-300">
         <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
         
         <div className="relative z-10">
-          <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-neon-cyan transition-colors">Who I Am</h3>
-          <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 group-hover:text-neon-cyan transition-colors">Who I Am</h3>
+          <div className="space-y-3 sm:space-y-4 text-base sm:text-lg text-gray-300 leading-relaxed">
             <p>
               I'm a <span className="text-neon-cyan font-semibold">Programmer Analyst Trainee at Cognizant</span>, working with .NET and React to develop full-stack web applications. I have knowledge in AI/ML, cloud technologies, and building scalable solutions that solve real-world problems.
             </p>
@@ -38,7 +51,7 @@ function About() {
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 sm:mb-12">
         <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl group hover:border-neon-cyan/50 transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
           <div className="relative z-10">
@@ -122,7 +135,7 @@ function About() {
         
         <div className="relative z-10">
           <h3 className="text-3xl font-bold text-white mb-8 group-hover:text-neon-purple transition-colors">Certifications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {skills.certifications.map((cert, i) => (
               <div key={i} className="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-neon-purple/50 hover:bg-white/10 transition-all duration-300 group/cert">
                 <span className="text-2xl">{cert.icon}</span>
@@ -133,6 +146,7 @@ function About() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

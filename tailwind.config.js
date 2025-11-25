@@ -17,12 +17,17 @@ module.exports = {
       animation: {
         'bounce-slow': 'bounce 3s ease-in-out infinite',
         'gradient': 'gradient 3s ease infinite',
+        'float': 'float 6s ease-in-out infinite', // Added for the 3D Terminal
       },
       keyframes: {
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
+        float: { // Added for the 3D Terminal
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        }
       },
     },
   },

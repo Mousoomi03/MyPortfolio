@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  @keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-rotate-border {
+    animation: rotate-border 3s linear infinite;
+  }
+}
 
 :root {
   --neon-cyan: #00ffff;
@@ -134,4 +147,26 @@ body {
   border-color: var(--neon-cyan);
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   transform: translateY(-2px);
+}
+
+@keyframes moveRay {
+  0% { transform: translateX(-100px) rotate(15deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100px) rotate(15deg); opacity: 0; }
+}
+
+@keyframes spin-border {
+  0% {
+    border-image: conic-gradient(from 0deg, #00ffff 0deg, transparent 90deg, transparent 270deg, #8a2be2 360deg) 1;
+  }
+  100% {
+    border-image: conic-gradient(from 360deg, #00ffff 0deg, transparent 90deg, transparent 270deg, #8a2be2 360deg) 1;
+  }
+}
+
+.animate-spin-border {
+  animation: spin-border 3s linear infinite;
+  border-image: conic-gradient(from 0deg, #00ffff 0deg, transparent 90deg, transparent 270deg, #8a2be2 360deg) 1;
+  filter: drop-shadow(0 0 8px #00ffff);
 }

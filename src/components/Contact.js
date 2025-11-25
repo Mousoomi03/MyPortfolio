@@ -30,16 +30,29 @@ function Contact() {
   ];
 
   return (
-    <section className="w-full max-w-7xl px-6 py-20 relative z-10" id="contact">
-      <div className="mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] text-white" id="contact">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute inset-0 animate-[pulse_4s_infinite]">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="absolute bg-white rounded-full opacity-60" style={{top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, width: `${Math.random() * 2 + 1}px`, height: `${Math.random() * 2 + 1}px`, animationDelay: `${Math.random() * 5}s`}} />
+          ))}
+        </div>
+      </div>
+      
+      <div className="w-full max-w-7xl px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+      <div className="mb-10 sm:mb-16">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
           Let's <span className="text-neon-cyan">Connect</span>
         </h2>
-        <div className="h-1 w-20 bg-neon-purple rounded-full mb-6"></div>
-        <p className="text-xl text-gray-400 max-w-2xl">Have a project in mind or just want to chat?</p>
+        <div className="h-1 w-20 bg-neon-purple rounded-full mb-4 sm:mb-6"></div>
+        <p className="text-base sm:text-xl text-gray-400 max-w-2xl">Have a project in mind or just want to chat?</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
         {/* Contact Info Card */}
         <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl group hover:border-neon-cyan/50 transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
@@ -161,6 +174,7 @@ function Contact() {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </section>
   );

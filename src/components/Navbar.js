@@ -83,7 +83,7 @@ function Navbar({ onNavClick, activeSection }) {
 
   return (
     <div 
-      className="fixed bottom-8 right-8 z-[1000] flex items-center justify-center"
+      className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[1000] flex items-center justify-center"
     >
       {/* Satellite Menu */}
       <div 
@@ -98,7 +98,7 @@ function Navbar({ onNavClick, activeSection }) {
             <button 
               key={item.id}
               onClick={() => onNavClick(item.id)}
-              className={`absolute w-12 h-12 rounded-full bg-black/80 backdrop-blur-md text-white flex items-center justify-center border border-neon-cyan/30 shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)`}
+              className={`absolute w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/80 backdrop-blur-md text-white flex items-center justify-center border border-neon-cyan/30 shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)`}
               style={{ 
                 transform: isOpen ? `translate(${pos.left}, ${pos.top}) scale(1)` : 'translate(0, 0) scale(0)',
                 opacity: isOpen ? 1 : 0,
@@ -116,11 +116,15 @@ function Navbar({ onNavClick, activeSection }) {
 
       {/* Main Toggle Button */}
       <div 
-        className={`relative w-16 h-16 rounded-full bg-gradient-to-tr from-purple-900 to-black flex items-center justify-center shadow-[0_0_30px_rgba(138,43,226,0.5)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,255,255,0.6)] hover:scale-105 z-50 border border-white/10`}
+        className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 z-50 cursor-pointer`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <div className={`transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+        <div className="absolute inset-0 rounded-full animate-rotate-border" style={{background: 'conic-gradient(from 0deg, #00ffff, transparent 30%, transparent 70%, #8a2be2, #00ffff)', padding: '2px'}}>
+          <div className="w-full h-full rounded-full bg-gradient-to-tr from-purple-900 to-black"></div>
+        </div>
+        <div className={`absolute inset-0 flex items-center justify-center z-10 transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
           {isOpen ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-neon-cyan">
               <line x1="18" y1="6" x2="6" y2="18"></line>

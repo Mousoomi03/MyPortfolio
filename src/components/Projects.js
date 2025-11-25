@@ -118,21 +118,35 @@ function ProjectCard({ project, index }) {
 
 function Projects() {
   return (
-    <section className="w-full max-w-7xl px-6 py-20 relative z-10" id="projects">
-      <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] text-white" id="projects">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute inset-0 animate-[pulse_4s_infinite]">
+          {[...Array(20)].map((_, i) => (
+            <div key={i} className="absolute bg-white rounded-full opacity-60" style={{top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, width: `${Math.random() * 2 + 1}px`, height: `${Math.random() * 2 + 1}px`, animationDelay: `${Math.random() * 5}s`}} />
+          ))}
+        </div>
+      </div>
+      
+      <div className="w-full max-w-7xl px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 sm:mb-16 gap-4 sm:gap-6">
         <div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">My <span className="text-neon-purple">Work</span></h2>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4">My <span className="text-neon-purple">Work</span></h2>
           <div className="h-1 w-20 bg-neon-cyan rounded-full"></div>
         </div>
-        <p className="text-gray-400 max-w-sm text-right">
+        <p className="text-sm sm:text-base text-gray-400 max-w-sm md:text-right">
           A collection of AI models and full-stack applications solving real problems.
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {projects.map((project, i) => (
           <ProjectCard key={i} project={project} index={i} />
         ))}
+      </div>
       </div>
     </section>
   );
