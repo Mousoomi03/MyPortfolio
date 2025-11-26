@@ -85,12 +85,12 @@ function Hero() {
       {/* --- LAYER 2: Main Content --- */}
       <div 
         ref={containerRef}
-        className="relative z-10 w-full max-w-7xl px-5 sm:px-6 lg:px-12 py-10 sm:py-0 flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-8 items-center"
+        className="relative z-10 w-full max-w-7xl px-5 sm:px-6 lg:px-12 py-8 sm:py-0 flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-center justify-center min-h-screen lg:min-h-0"
       >
         
         {/* Left: Text & Name */}
-        <div className="space-y-4 sm:space-y-8 text-center lg:text-left w-full">
-          <div className="space-y-2">
+        <div className="space-y-5 sm:space-y-8 text-center lg:text-left w-full">
+          <div className="space-y-2.5">
             <h2 className="text-sm sm:text-xl md:text-2xl text-white/70 font-mono tracking-wide">Hello, I am</h2>
             <h1 className="text-[2.5rem] leading-tight sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter">
               <span className="bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-purple bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">
