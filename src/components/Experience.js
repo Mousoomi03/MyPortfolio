@@ -1,3 +1,5 @@
+import StarsBackground from './StarsBackground';
+
 const experiences = [
   {
     title: 'Programmer Analyst Trainee',
@@ -41,7 +43,7 @@ function Experience() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
-
+        <StarsBackground />
       </div>
       
       <div className="w-full max-w-5xl px-4 sm:px-6 py-12 sm:py-20 relative z-10 mx-auto">

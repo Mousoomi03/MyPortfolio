@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import StarsBackground from './StarsBackground';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -35,7 +36,7 @@ function Contact() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
-
+        <StarsBackground />
       </div>
       
       <div className="w-full max-w-7xl px-4 sm:px-6 py-12 sm:py-20 relative z-10">
@@ -49,13 +50,13 @@ function Contact() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
         {/* Contact Info Card */}
-        <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl group hover:border-neon-cyan/50 transition-all duration-300">
+        <div className="bg-gray-900/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 rounded-3xl group hover:border-neon-cyan/50 transition-all duration-300 h-fit">
           <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
           
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-neon-cyan transition-colors">Get In Touch</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-5 group-hover:text-neon-cyan transition-colors">Get In Touch</h3>
             
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3.5 mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 flex items-center justify-center bg-neon-cyan/10 rounded-lg">
                   <svg className="w-6 h-6 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
