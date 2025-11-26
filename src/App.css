@@ -156,6 +156,15 @@ body {
   100% { transform: translateX(100px) rotate(15deg); opacity: 0; }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
 @keyframes spin-border {
   0% {
     border-image: conic-gradient(from 0deg, #00ffff 0deg, transparent 90deg, transparent 270deg, #8a2be2 360deg) 1;

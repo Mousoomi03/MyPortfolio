@@ -18,12 +18,23 @@ function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
+  const starsRef = useRef([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
     }, 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    starsRef.current = Array.from({ length: 50 }, () => ({
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      size: Math.random() * 3 + 1,
+      delay: Math.random() * 3,
+      duration: Math.random() * 2 + 2
+    }));
   }, []);
 
   const handleMouseMove = (e) => {
@@ -52,21 +63,19 @@ function Hero() {
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-neon-purple/20 blur-[120px] rounded-full animate-pulse"></div>
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-neon-cyan/20 blur-[120px] rounded-full animate-pulse delay-1000"></div>
         
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-        
-        {/* Simplified Stars */}
-        <div className="absolute inset-0 animate-[pulse_4s_infinite]">
-            {[...Array(20)].map((_, i) => (
+        {/* Twinkling Stars */}
+        <div className="absolute inset-0">
+            {starsRef.current.map((star, i) => (
                 <div 
                   key={i} 
-                  className="absolute bg-white rounded-full opacity-60"
+                  className="absolute bg-white rounded-full animate-twinkle"
                   style={{
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    width: `${Math.random() * 2 + 1}px`,
-                    height: `${Math.random() * 2 + 1}px`,
-                    animationDelay: `${Math.random() * 5}s`
+                    top: `${star.top}%`,
+                    left: `${star.left}%`,
+                    width: `${star.size}px`,
+                    height: `${star.size}px`,
+                    animationDelay: `${star.delay}s`,
+                    animationDuration: `${star.duration}s`
                   }}
                 />
             ))}
