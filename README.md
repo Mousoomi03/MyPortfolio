@@ -1,5 +1,5 @@
 # 🌐 My Personal Portfolio
-**Live Demo:** [View Portfolio](https://my-portfolio-drab-omega-11.vercel.app/)
+**Live Demo:** [Portfolio](https://my-portfolio-drab-omega-11.vercel.app/)
 
 Welcome to the repository for my personal portfolio. This project serves as a central hub to showcase my skills, professional experience at Cognizant, and my background in Full-Stack Development and AI.
 
